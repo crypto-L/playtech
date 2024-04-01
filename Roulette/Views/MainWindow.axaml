@@ -30,9 +30,23 @@
                     <TextBlock Text="StackPanel 3"/>
                 </StackPanel>
                 
-                <StackPanel Grid.Row="1" Grid.Column="1" Background="Aquamarine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="StackPanel 3"/>
-                </StackPanel>
+                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*" x:Name="BetSelectionGrid" Grid.Row="1" Grid.Column="1" Background="Wheat">
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Background="Aqua">
+                        <StackPanel HorizontalAlignment="Right">
+                            <Button Background="Brown">Button 1 (Right)</Button>
+                            <Button Background="Gold">Button 2 (Right)</Button>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right">
+                            <Button Background="Khaki">Button 3 (Right)</Button>
+                            <Button Background="DarkCyan">Button 4 (Right)</Button>
+                        </StackPanel>
+                    </StackPanel>
+                    <DockPanel LastChildFill="True" Grid.Row="1" Background="Aquamarine">
+                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
+                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
+                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
+                    </DockPanel>
+                </Grid>
             </Grid>
         </StackPanel>
     </Border>
