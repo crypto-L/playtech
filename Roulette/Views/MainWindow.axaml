@@ -15,6 +15,15 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
+    <Window.Styles>
+        <Style Selector="Button.BetSelectionButton">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Styles>
+    
     <Border BorderBrush="Black" BorderThickness="1">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
             <Grid x:Name="MainContainer" ShowGridLines="True" RowDefinitions="Auto,Auto" ColumnDefinitions="*,5*,*">
@@ -23,30 +32,36 @@
                 </StackPanel>
                 
                 <StackPanel Grid.Row="0" Grid.Column="1" Background="Gold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="StackPanel 2"/>
+                    <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *, *, *, *, *, *, *">
+                        <ItemsControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" ItemsSource="{Binding ButtonsRow1}">
+                           <ItemsControl.ItemsPanel>
+                               <ItemsPanelTemplate>
+                                   <UniformGrid Rows="1" />
+                               </ItemsPanelTemplate>
+                           </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </Grid>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="0" Grid.Column="2" Background="Aquamarine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <TextBlock Text="StackPanel 3"/>
                 </StackPanel>
                 
-                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*" x:Name="BetSelectionGrid" Grid.Row="1" Grid.Column="1" Background="Wheat">
-                    <StackPanel Orientation="Horizontal" Grid.Row="0" Background="Aqua">
-                        <StackPanel HorizontalAlignment="Right">
-                            <Button Background="Brown">Button 1 (Right)</Button>
-                            <Button Background="Gold">Button 2 (Right)</Button>
-                        </StackPanel>
-                        <StackPanel HorizontalAlignment="Right">
-                            <Button Background="Khaki">Button 3 (Right)</Button>
-                            <Button Background="DarkCyan">Button 4 (Right)</Button>
-                        </StackPanel>
-                    </StackPanel>
-                    <DockPanel LastChildFill="True" Grid.Row="1" Background="Aquamarine">
-                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
-                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
-                        <Button Background="Brown" DockPanel.Dock="Left">Button 4 (Stretch)</Button>
-                    </DockPanel>
-                </Grid>
+                <StackPanel x:Name="BetSelectionPanel" Grid.Row="1" Grid.Column="1" Background="Wheat">
+                    <Grid ColumnDefinitions="*,*,*">
+                        <Button Grid.Column="0" Classes="BetSelectionButton" Content="1st 12" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="1" Classes="BetSelectionButton" Content="2nd 12" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="2" Classes="BetSelectionButton" Content="3rd 12" HorizontalAlignment="Stretch" />
+                    </Grid>
+                    <Grid ColumnDefinitions="*,*,*,*,*,*">
+                        <Button Grid.Column="0" Classes="BetSelectionButton" Content="1 to 18" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="1" Classes="BetSelectionButton" Content="Even" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="2" Classes="BetSelectionButton" Content="Black" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="3" Classes="BetSelectionButton" Content="Red" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="4" Classes="BetSelectionButton" Content="Odd" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="5" Classes="BetSelectionButton" Content="19 to 36" HorizontalAlignment="Stretch" />
+                    </Grid>
+                </StackPanel>
             </Grid>
         </StackPanel>
     </Border>

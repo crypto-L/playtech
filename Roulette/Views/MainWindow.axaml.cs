@@ -1,5 +1,3 @@
-using System;
-using System.Diagnostics;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -12,8 +10,5 @@ public partial class MainWindow : Window
         InitializeComponent();
     }
 
-    private void ClickHandler(object? sender, RoutedEventArgs e)
-    {
-        
-    }
+  
 }
