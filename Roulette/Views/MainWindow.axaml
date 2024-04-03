@@ -38,6 +38,8 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate >
                                     <Button 
+                                        Grid.Row="0"
+                                        Grid.Column="{Binding Index}"
                                         Content="{Binding Number}" 
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Center"/>
@@ -46,7 +48,13 @@
                             
                             <ItemsControl.ItemsPanel>
                                <ItemsPanelTemplate>
-                                   <UniformGrid Columns="{Binding ButtonsRow1.Count}"></UniformGrid>
+                                   <Grid 
+                                       HorizontalAlignment="Stretch" 
+                                       VerticalAlignment="Stretch" 
+                                       RowDefinitions="Auto" 
+                                       ColumnDefinitions="*, *, *"
+                                       ShowGridLines="True"
+                                       />
                                </ItemsPanelTemplate>
                            </ItemsControl.ItemsPanel>
                         </ItemsControl>

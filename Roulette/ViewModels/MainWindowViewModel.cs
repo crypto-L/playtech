@@ -21,10 +21,13 @@ public class MainWindowViewModel : ViewModelBase
     {
         public int Number { get; set; }
         public string Color { get; set; }
-        public ButtonInfo(int number, string color)
+        
+        public int Index { get; set; }
+        public ButtonInfo(int number, string color, int index)
         {
             Number = number;
             Color = color;
+            Index = index;
         }
     }
 
@@ -37,18 +40,24 @@ public class MainWindowViewModel : ViewModelBase
 
         for (int i = 0; i < 12; i++)
         {
-            ButtonsRow1.Add(CreateButton(3 + (i*3)));
-            ButtonsRow2.Add(CreateButton(2 + (i*3)));
-            ButtonsRow3.Add(CreateButton(1 + (i*3)));
+            ButtonsRow1.Add(CreateButton(3 + (i*3), i));
+            ButtonsRow2.Add(CreateButton(2 + (i*3), i));
+            ButtonsRow3.Add(CreateButton(1 + (i*3), i));
             
         }
+
+        ButtonsRow1 = new ObservableCollection<ButtonInfo>()
+        {
+            ButtonsRow1.First(),
+            ButtonsRow2.First()
+        };
     }
 
-    private ButtonInfo CreateButton(int buttonNumber)
+    private ButtonInfo CreateButton(int buttonNumber, int index)
     {
         var isRed = RedButtonNumbers.Contains(buttonNumber);
         var color = isRed ? "Red" : "Black";
-        return new ButtonInfo(buttonNumber, color);
+        return new ButtonInfo(buttonNumber, color, index);
     }
     
 #pragma warning restore CA1822 // Mark members as static
