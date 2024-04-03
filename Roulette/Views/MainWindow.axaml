@@ -32,14 +32,59 @@
                 </StackPanel>
                 
                 <StackPanel Grid.Row="0" Grid.Column="1" Background="Gold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, *, *, *, *, *, *, *, *, *, *, *">
-                        <ItemsControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="12" ItemsSource="{Binding ButtonsRow1}">
-                           <ItemsControl.ItemsPanel>
+                    <Grid RowDefinitions="Auto, Auto, Auto">
+                        
+                        <ItemsControl Grid.Row="0" ItemsSource="{Binding ButtonsRow1}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate >
+                                    <Button 
+                                        Content="{Binding Number}" 
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            
+                            <ItemsControl.ItemsPanel>
                                <ItemsPanelTemplate>
-                                   <UniformGrid Rows="1" />
+                                   <UniformGrid Columns="{Binding ButtonsRow1.Count}"></UniformGrid>
                                </ItemsPanelTemplate>
                            </ItemsControl.ItemsPanel>
                         </ItemsControl>
+                        
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding ButtonsRow2}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate >
+                                    <Button 
+                                        Content="{Binding Number}" 
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="{Binding ButtonsRow2.Count}"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        
+                        <ItemsControl Grid.Row="2" ItemsSource="{Binding ButtonsRow3}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate >
+                                    <Button 
+                                        Content="{Binding Number}" 
+                                        HorizontalAlignment="Stretch"
+                                        HorizontalContentAlignment="Center"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="{Binding ButtonsRow3.Count}"></UniformGrid>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                        
                     </Grid>
                 </StackPanel>
                 

@@ -11,18 +11,29 @@ public class MainWindowViewModel : ViewModelBase
 #pragma warning disable CA1822 // Mark members as static
     public string Greeting => "Welcome to Avalonia!";
     
-    public ObservableCollection<Button> ButtonsRow1 { get; set; }
-    public ObservableCollection<Button> ButtonsRow2 { get; set; }
-    public ObservableCollection<Button> ButtonsRow3 { get; set; }
+    public ObservableCollection<ButtonInfo> ButtonsRow1 { get; set; }
+    public ObservableCollection<ButtonInfo> ButtonsRow2 { get; set; }
+    public ObservableCollection<ButtonInfo> ButtonsRow3 { get; set; }
 
     private int[] RedButtonNumbers { get; }
+    
+    public class ButtonInfo
+    {
+        public int Number { get; set; }
+        public string Color { get; set; }
+        public ButtonInfo(int number, string color)
+        {
+            Number = number;
+            Color = color;
+        }
+    }
 
     public MainWindowViewModel()
     {
         RedButtonNumbers = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36];
-        ButtonsRow1 = new ObservableCollection<Button>();
-        ButtonsRow2 = new ObservableCollection<Button>();
-        ButtonsRow3 = new ObservableCollection<Button>();
+        ButtonsRow1 = new ObservableCollection<ButtonInfo>();
+        ButtonsRow2 = new ObservableCollection<ButtonInfo>();
+        ButtonsRow3 = new ObservableCollection<ButtonInfo>();
 
         for (int i = 0; i < 12; i++)
         {
@@ -33,11 +44,11 @@ public class MainWindowViewModel : ViewModelBase
         }
     }
 
-    private Button CreateButton(int buttonNumber)
+    private ButtonInfo CreateButton(int buttonNumber)
     {
         var isRed = RedButtonNumbers.Contains(buttonNumber);
         var color = isRed ? "Red" : "Black";
-        return new Button { Content = $"{buttonNumber}", Classes = { color }};
+        return new ButtonInfo(buttonNumber, color);
     }
     
 #pragma warning restore CA1822 // Mark members as static
