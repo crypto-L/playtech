@@ -39,10 +39,14 @@
         </Style> 
         
         <Style Selector="Button.DozensButton">
-            <Setter Property="Height" Value="50" /> 
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Padding" Value="2" />
+            <Setter Property="Margin" Value="1" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>
         </Style>
         
         <Style Selector="Button.Black">
@@ -179,38 +183,42 @@
                     </Grid>
                 </StackPanel>
                 
-                <StackPanel Grid.Row="0" Grid.Column="2" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Grid RowDefinitions="Auto, Auto, Auto" ShowGridLines="True">
-                        <StackPanel Grid.Row="0">
-                            <Button Classes="DozensButton">
-                                <StackPanel>
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" >
+                    <Grid RowDefinitions="*, *, *" ShowGridLines="True" >
+                        
+                        <Button Classes="DozensButton" Grid.Row="0" VerticalAlignment="Stretch">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
                                     <StackPanel.RenderTransform>
                                         <RotateTransform Angle="-90" />
                                     </StackPanel.RenderTransform>
-                                    <TextBlock Text="2 to 1" />
+                                    <TextBlock Text="2 to 1" VerticalAlignment="Center" />
                                 </StackPanel>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1">
-                            <Button Classes="DozensButton">
-                                <StackPanel>
+                            </Button.Content>
+                        </Button>
+                        
+                        <Button Classes="DozensButton" Grid.Row="1" VerticalAlignment="Stretch">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
                                     <StackPanel.RenderTransform>
                                         <RotateTransform Angle="-90" />
                                     </StackPanel.RenderTransform>
-                                    <TextBlock Text="2 to 1" />
+                                    <TextBlock Text="2 to 1" VerticalAlignment="Center"/>
                                 </StackPanel>
-                            </Button>
-                        </StackPanel>
-                        <StackPanel Grid.Row="2">
-                            <Button Classes="DozensButton">
-                                <StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                        <Button Classes="DozensButton" Grid.Row="2" VerticalAlignment="Stretch">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
                                     <StackPanel.RenderTransform>
                                         <RotateTransform Angle="-90" />
                                     </StackPanel.RenderTransform>
-                                    <TextBlock Text="2 to 1" />
+                                    <TextBlock Text="2 to 1" VerticalAlignment="Center"/>
                                 </StackPanel>
-                            </Button>
-                        </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        
                     </Grid>
                 </StackPanel>
                 
