@@ -60,12 +60,13 @@
         
         <Style Selector="Button.ZeroButton /template/ ContentPresenter">
             <Setter Property = "CornerRadius" Value = "10" />
+            <Setter Property = "FontSize" Value = "20" />
         </Style>
+        
         <Style Selector="Button.ZeroButton:pointerover /template/ ContentPresenter">
             <Setter Property = "BorderBrush" Value = "Green" />
             <Setter Property = "Background" Value = "Transparent" />
         </Style>
-        
     </Window.Styles>
     
     <Border BorderBrush="Black" BorderThickness="1">
@@ -78,12 +79,17 @@
                             HorizontalAlignment="Right"
                             Background="Transparent">
                         <Grid>
-                            <Path Data="m 50 50 h -70 L -70 0 l 50 -50 L 50 -50 L 50 -0 z" Fill="Green" Stretch="Fill">
-                            </Path>
-                            <TextBlock Text="0" 
-                                       VerticalAlignment="Center" 
-                                       HorizontalAlignment="Center" 
-                                       Foreground="White" />
+                            <Path 
+                                Data="m 50 50 h -70 L -70 0 l 50 -50 L 50 -50 L 50 -0 z" 
+                                Fill="Green" 
+                                Stretch="Fill"
+                            />
+                            <TextBlock 
+                                Text="0" 
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                Foreground="White" 
+                            />
                         </Grid>
                     </Button>
                 </Grid>
@@ -104,8 +110,7 @@
                                         Classes="BettingNumberButton"
                                         Classes.Red="{Binding IsRed}"
                                         Classes.Black="{Binding !IsRed}"
-                                        >
-                                    </Button>
+                                    />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             
