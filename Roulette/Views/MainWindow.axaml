@@ -64,20 +64,18 @@
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
             <Grid x:Name="MainContainer" RowDefinitions="Auto,Auto" ColumnDefinitions="*,5*,*">
                 
-                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Background="Aquamarine" >
-                    <Grid RowDefinitions="*" Background="Red" HorizontalAlignment="Right" >
-                        <Button Classes="DozensButton" Grid.Row="0" VerticalAlignment="Stretch">
-                            <Button.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <StackPanel.RenderTransform>
-                                        <RotateTransform Angle="-90" />
-                                    </StackPanel.RenderTransform>
-                                    <TextBlock Text="00" VerticalAlignment="Center" />
-                                </StackPanel>
-                            </Button.Content>
-                        </Button>
-                    </Grid>
-                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="0" Background="Aquamarine" RowDefinitions="*">
+                    <Button Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Right">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel.RenderTransform>
+                                    <RotateTransform Angle="-90" />
+                                </StackPanel.RenderTransform>
+                                <TextBlock Text="2 to 1" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
                 
                 <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid RowDefinitions="Auto, Auto, Auto">
