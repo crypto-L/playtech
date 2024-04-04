@@ -23,15 +23,15 @@ public class MainWindowViewModel : ViewModelBase
 
         for (int i = 0; i < 12; i++)
         {
-            ButtonsRow1.Add(CreateButton(3 + (i*3), i));
-            ButtonsRow2.Add(CreateButton(2 + (i*3), i));
-            ButtonsRow3.Add(CreateButton(1 + (i*3), i));
+            ButtonsRow1.Add(CreateButtonInfo(3 + (i*3), i));
+            ButtonsRow2.Add(CreateButtonInfo(2 + (i*3), i));
+            ButtonsRow3.Add(CreateButtonInfo(1 + (i*3), i));
             
         }
         
     }
 
-    private ButtonInfo CreateButton(int buttonNumber, int index)
+    private ButtonInfo CreateButtonInfo(int buttonNumber, int index)
     {
         var isRed = RedButtonNumbers.Contains(buttonNumber);
         return new ButtonInfo(buttonNumber, isRed, index);
