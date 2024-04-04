@@ -2,8 +2,8 @@
 Playtech's home assignment
 
 Requirements:
-.NET SDK 8.x.x
 
+.NET SDK 8.x.x
 
 IDE: JetBrains Rider or Visual Studio
 
