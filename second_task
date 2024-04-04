@@ -1,0 +1,42 @@
+Since we are limited by the camera and regular cards, options involving RFID recognition are not suitable as they require additional equipment. 
+Similarly, options such as barcodes do not fit regular playing cards. The only option remaining is to programmatically identify cards based on the image from the video camera.
+
+For this purpose, computer vision (OCR) is used, and there are three options available: finding a service provider for this task, finding a ready-made library/model, or training the model yourself.
+The first option is not suitable since the task involves developing our own application, so the second and third options remain viable.
+
+Choosing a ready-made solution:
+The choice of a ready-made library/application depends on many factors, such as the system it needs to be integrated into, and so on. 
+Since there is currently no additional information available, this aspect can be disregarded.
+
+I have found several repositories with ready-made solutions, however, none of them were very popular within the community (low number of stars). Here are some of them that caught my eye:
+
+Card_Recognizer
+https://github.com/dharm1k987/Card_Recognizer
+
+OpenCV Playing Card Detection
+https://github.com/TorryDo/OpenCV-Playing-Card-Detection
+
+Playing Card Recognition
+https://github.com/pbmartins/card-recognition
+
+Of course, selecting a specific solution requires a more thorough analysis, which would be conducted with more detailed requirements. 
+Furthermore, these solutions would require integration into our specific system, as a basic console application is unlikely to suffice for our needs.
+
+Creating the application by yourself:
+Another approach is to develop such an application on your own.
+
+As the internet shows, there are numerous technologies and methods available for accomplishing this task. I'll delve into one of them.
+
+To begin with, it's necessary to select a tool for computer vision.
+An example of such a library is OpenCV.
+I chose it due to its popularity and the amount of educational materials available (although other technologies can also be used).
+
+Next, you'll need to photograph and properly label all the cards, including information such as their number and suit.
+
+When the image from the camera reaches our program, it will be processed accordingly.
+For example, the image will be converted to grayscale, blurred, thresholded, and then OpenCV will detect contours on the image.
+Once the cards are identified, each of them can be compared with pre-identified images from the dataset.
+The card captured by the camera will be compared to the cards in the dataset, aiming to find the one with the closest image similarity.
+After determining which card it is, the information can be passed further through the application, depending on the chosen "wrapper".
+
+Of course, this is not only option.
