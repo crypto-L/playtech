@@ -69,15 +69,17 @@
             <Grid x:Name="MainContainer" RowDefinitions="Auto,Auto" ColumnDefinitions="*,5*,*">
                 
                 <Grid Grid.Row="0" Grid.Column="0" RowDefinitions="*">
-                    <Button Classes="ZeroButton" Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Right">
-                        <Button.Content>
-                            <StackPanel Orientation="Horizontal">
-                                <StackPanel.RenderTransform>
-                                    <RotateTransform Angle="-90" />
-                                </StackPanel.RenderTransform>
-                                <TextBlock Text="00" VerticalAlignment="Center" />
-                            </StackPanel>
-                        </Button.Content>
+                    <Button Classes="ZeroButton" Grid.Row="0" 
+                            VerticalAlignment="Stretch" 
+                            HorizontalAlignment="Right"
+                            Background="Transparent">
+                        <Grid>
+                            <Path Data="m 50 50 h -70 L -70 0 l 50 -50 L 50 -50 L 50 -0 z" Fill="Green" Stretch="Fill">
+                            </Path>
+                            <TextBlock Text="0" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center" Foreground="White" />
+                        </Grid>
                     </Button>
                 </Grid>
                 
