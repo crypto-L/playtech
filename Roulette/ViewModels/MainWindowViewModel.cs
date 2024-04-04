@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using Avalonia.Controls;
-using Avalonia.Layout;
 using Roulette.Models;
 
 namespace Roulette.ViewModels;
@@ -10,7 +7,6 @@ namespace Roulette.ViewModels;
 public class MainWindowViewModel : ViewModelBase
 {
 #pragma warning disable CA1822 // Mark members as static
-    public string Greeting => "Welcome to Avalonia!";
     
     public ObservableCollection<ButtonInfo> ButtonsRow1 { get; set; }
     public ObservableCollection<ButtonInfo> ButtonsRow2 { get; set; }
