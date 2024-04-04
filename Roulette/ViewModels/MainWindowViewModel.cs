@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Layout;
+using Roulette.Models;
 
 namespace Roulette.ViewModels;
 
@@ -16,20 +17,6 @@ public class MainWindowViewModel : ViewModelBase
     public ObservableCollection<ButtonInfo> ButtonsRow3 { get; set; }
 
     private int[] RedButtonNumbers { get; }
-    
-    public class ButtonInfo
-    {
-        public int Number { get; set; }
-        public string Color { get; set; }
-        
-        public int Index { get; set; }
-        public ButtonInfo(int number, string color, int index)
-        {
-            Number = number;
-            Color = color;
-            Index = index;
-        }
-    }
 
     public MainWindowViewModel()
     {
@@ -46,11 +33,10 @@ public class MainWindowViewModel : ViewModelBase
             
         }
 
-        ButtonsRow1 = new ObservableCollection<ButtonInfo>()
+        foreach (var button in ButtonsRow1)
         {
-            ButtonsRow1.First(),
-            ButtonsRow2.First()
-        };
+            Console.WriteLine(button.Index);
+        }
     }
 
     private ButtonInfo CreateButton(int buttonNumber, int index)

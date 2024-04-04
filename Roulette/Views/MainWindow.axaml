@@ -1,8 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:Roulette.ViewModels"
+        xmlns:md="using:Roulette.Models"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gridbehavior="using:AvaloniaGridDefinitionBehavoir"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Roulette.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -18,10 +20,15 @@
     <Window.Styles>
         <Style Selector="Button.BetSelectionButton">
             <Setter Property="Height" Value="50"/>
-            <Setter Property="Margin" Value="5" />
+            <Setter Property="Margin" Value="2" />
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
+        
+        <Style Selector="Button.Black">
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        
     </Window.Styles>
     
     <Border BorderBrush="Black" BorderThickness="1">
@@ -34,15 +41,17 @@
                 <StackPanel Grid.Row="0" Grid.Column="1" Background="Gold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid RowDefinitions="Auto, Auto, Auto">
                         
-                        <ItemsControl Grid.Row="0" ItemsSource="{Binding ButtonsRow1}">
+                        <ItemsControl 
+                            x:DataType="vm:MainWindowViewModel"
+                            DockPanel.Dock="Top"
+                            Grid.Row="0" ItemsSource="{Binding ButtonsRow1}">
                             <ItemsControl.ItemTemplate>
-                                <DataTemplate >
-                                    <Button 
-                                        Grid.Row="0"
-                                        Grid.Column="{Binding Index}"
+                                <DataTemplate x:DataType="md:ButtonInfo">
+                                    <Button
                                         Content="{Binding Number}" 
+                                        HorizontalContentAlignment="Center"
                                         HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Center"/>
+                                        />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             
@@ -51,18 +60,26 @@
                                    <Grid 
                                        HorizontalAlignment="Stretch" 
                                        VerticalAlignment="Stretch" 
-                                       RowDefinitions="Auto" 
-                                       ColumnDefinitions="*, *, *"
-                                       ShowGridLines="True"
+                                       gridbehavior:GridDefinitionBehavior.RowCount="1"
+                                       gridbehavior:GridDefinitionBehavior.ColumnCount="{Binding ButtonsRow1.Count}"
+                                       gridbehavior:GridDefinitionBehavior.StarColumns=".*"
+                                       gridbehavior:GridDefinitionBehavior.StarRows=".*"
                                        />
                                </ItemsPanelTemplate>
                            </ItemsControl.ItemsPanel>
+                            
+                            <ItemsControl.Styles>
+                                <Style x:DataType="md:ButtonInfo" Selector="ItemsControl > ContentPresenter">
+                                    <Setter Property="Grid.Row" Value="0"/>
+                                    <Setter Property="Grid.Column" Value="{Binding Index}"/>
+                                </Style>
+                            </ItemsControl.Styles>
                         </ItemsControl>
                         
                         <ItemsControl Grid.Row="1" ItemsSource="{Binding ButtonsRow2}">
                             <ItemsControl.ItemTemplate>
-                                <DataTemplate >
-                                    <Button 
+                                <DataTemplate>
+                                    <Button
                                         Content="{Binding Number}" 
                                         HorizontalAlignment="Stretch"
                                         HorizontalContentAlignment="Center"/>
@@ -71,9 +88,23 @@
                             
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <UniformGrid Columns="{Binding ButtonsRow2.Count}"></UniformGrid>
+                                    <Grid 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch" 
+                                        gridbehavior:GridDefinitionBehavior.RowCount="1"
+                                        gridbehavior:GridDefinitionBehavior.ColumnCount="{Binding ButtonsRow2.Count}"
+                                        gridbehavior:GridDefinitionBehavior.StarColumns=".*"
+                                        gridbehavior:GridDefinitionBehavior.StarRows=".*"
+                                    />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
+                            
+                            <ItemsControl.Styles>
+                                <Style x:DataType="md:ButtonInfo" Selector="ItemsControl > ContentPresenter">
+                                    <Setter Property="Grid.Row" Value="0"/>
+                                    <Setter Property="Grid.Column" Value="{Binding Index}"/>
+                                </Style>
+                            </ItemsControl.Styles>
                         </ItemsControl>
                         
                         <ItemsControl Grid.Row="2" ItemsSource="{Binding ButtonsRow3}">
@@ -88,9 +119,23 @@
                             
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <UniformGrid Columns="{Binding ButtonsRow3.Count}"></UniformGrid>
+                                    <Grid 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch" 
+                                        gridbehavior:GridDefinitionBehavior.RowCount="1"
+                                        gridbehavior:GridDefinitionBehavior.ColumnCount="{Binding ButtonsRow3.Count}"
+                                        gridbehavior:GridDefinitionBehavior.StarColumns=".*"
+                                        gridbehavior:GridDefinitionBehavior.StarRows=".*"
+                                    />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
+                            
+                            <ItemsControl.Styles>
+                                <Style x:DataType="md:ButtonInfo" Selector="ItemsControl > ContentPresenter">
+                                    <Setter Property="Grid.Row" Value="0"/>
+                                    <Setter Property="Grid.Column" Value="{Binding Index}"/>
+                                </Style>
+                            </ItemsControl.Styles>
                         </ItemsControl>
                         
                     </Grid>
