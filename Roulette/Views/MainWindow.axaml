@@ -23,10 +23,29 @@
             <Setter Property="Margin" Value="2" />
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="White"/>
         </Style>
         
-        <Style Selector="Button.Black">
+        <Style Selector="Button.BettingNumberButton">
+            <Setter Property="Height" Value="50" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Margin" Value="2" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Green"/>
+            
+        </Style> 
+        
+        <Style Selector="Button.Black">
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        
+        <Style Selector="Button.Red">
+            <Setter Property="Background" Value="Red" />
         </Style>
         
     </Window.Styles>
@@ -38,7 +57,7 @@
                     <TextBlock Text="StackPanel 1"/>
                 </StackPanel>
                 
-                <StackPanel Grid.Row="0" Grid.Column="1" Background="Gold" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid RowDefinitions="Auto, Auto, Auto">
                         
                         <ItemsControl 
@@ -51,7 +70,11 @@
                                         Content="{Binding Number}" 
                                         HorizontalContentAlignment="Center"
                                         HorizontalAlignment="Stretch"
-                                        />
+                                        Classes="BettingNumberButton"
+                                        Classes.Red="{Binding IsRed}"
+                                        Classes.Black="{Binding !IsRed}"
+                                        >
+                                    </Button>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             
@@ -73,6 +96,7 @@
                                     <Setter Property="Grid.Row" Value="0"/>
                                     <Setter Property="Grid.Column" Value="{Binding Index}"/>
                                 </Style>
+                                
                             </ItemsControl.Styles>
                         </ItemsControl>
                         
@@ -82,7 +106,11 @@
                                     <Button
                                         Content="{Binding Number}" 
                                         HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Center"/>
+                                        HorizontalContentAlignment="Center"
+                                        Classes="BettingNumberButton"
+                                        Classes.Red="{Binding IsRed}"
+                                        Classes.Black="{Binding !IsRed}"
+                                        />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             
@@ -113,7 +141,11 @@
                                     <Button 
                                         Content="{Binding Number}" 
                                         HorizontalAlignment="Stretch"
-                                        HorizontalContentAlignment="Center"/>
+                                        HorizontalContentAlignment="Center"
+                                        Classes="BettingNumberButton"
+                                        Classes.Red="{Binding IsRed}"
+                                        Classes.Black="{Binding !IsRed}"
+                                        />
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                             
@@ -145,7 +177,7 @@
                     <TextBlock Text="StackPanel 3"/>
                 </StackPanel>
                 
-                <StackPanel x:Name="BetSelectionPanel" Grid.Row="1" Grid.Column="1" Background="Wheat">
+                <StackPanel x:Name="BetSelectionPanel" Grid.Row="1" Grid.Column="1">
                     <Grid ColumnDefinitions="*,*,*">
                         <Button Grid.Column="0" Classes="BetSelectionButton" Content="1st 12" HorizontalAlignment="Stretch" />
                         <Button Grid.Column="1" Classes="BetSelectionButton" Content="2nd 12" HorizontalAlignment="Stretch" />
@@ -154,8 +186,8 @@
                     <Grid ColumnDefinitions="*,*,*,*,*,*">
                         <Button Grid.Column="0" Classes="BetSelectionButton" Content="1 to 18" HorizontalAlignment="Stretch" />
                         <Button Grid.Column="1" Classes="BetSelectionButton" Content="Even" HorizontalAlignment="Stretch" />
-                        <Button Grid.Column="2" Classes="BetSelectionButton" Content="Black" HorizontalAlignment="Stretch" />
-                        <Button Grid.Column="3" Classes="BetSelectionButton" Content="Red" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="2" Classes="BetSelectionButton Black" HorizontalAlignment="Stretch" />
+                        <Button Grid.Column="3" Classes="BetSelectionButton Red" HorizontalAlignment="Stretch" />
                         <Button Grid.Column="4" Classes="BetSelectionButton" Content="Odd" HorizontalAlignment="Stretch" />
                         <Button Grid.Column="5" Classes="BetSelectionButton" Content="19 to 36" HorizontalAlignment="Stretch" />
                     </Grid>

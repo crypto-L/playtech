@@ -43,7 +43,7 @@ public class MainWindowViewModel : ViewModelBase
     {
         var isRed = RedButtonNumbers.Contains(buttonNumber);
         var color = isRed ? "Red" : "Black";
-        return new ButtonInfo(buttonNumber, color, index);
+        return new ButtonInfo(buttonNumber, isRed, index);
     }
     
 #pragma warning restore CA1822 // Mark members as static

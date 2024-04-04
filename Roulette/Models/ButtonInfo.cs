@@ -6,7 +6,7 @@ namespace Roulette.Models;
 public class ButtonInfo : ViewModelBase, INotifyPropertyChanged
 {
     public int Number { get; set; }
-    public string Color { get; set; }
+    public bool IsRed { get; set; }
     
     private int _index;
 
@@ -22,10 +22,10 @@ public class ButtonInfo : ViewModelBase, INotifyPropertyChanged
 
     public event PropertyChangedEventHandler? PropertyChanged;
     
-    public ButtonInfo(int number, string color, int index)
+    public ButtonInfo(int number, bool isRed, int index)
     {
         Number = number;
-        Color = color;
+        IsRed = isRed;
         Index = index;
     }
 
