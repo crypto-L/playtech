@@ -4,7 +4,7 @@
         xmlns:md="using:Roulette.Models"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:gridbehavior="using:AvaloniaGridDefinitionBehavoir"
+        xmlns:gridbehavior="using:AvaloniaGridDefinitionBehavoir" 
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Roulette.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -61,6 +61,10 @@
         <Style Selector="Button.ZeroButton /template/ ContentPresenter">
             <Setter Property = "CornerRadius" Value = "10" />
         </Style>
+        <Style Selector="Button.ZeroButton:pointerover /template/ ContentPresenter">
+            <Setter Property = "BorderBrush" Value = "Green" />
+            <Setter Property = "Background" Value = "Transparent" />
+        </Style>
         
     </Window.Styles>
     
@@ -78,7 +82,8 @@
                             </Path>
                             <TextBlock Text="0" 
                                        VerticalAlignment="Center" 
-                                       HorizontalAlignment="Center" Foreground="White" />
+                                       HorizontalAlignment="Center" 
+                                       Foreground="White" />
                         </Grid>
                     </Button>
                 </Grid>
@@ -122,7 +127,6 @@
                                     <Setter Property="Grid.Row" Value="0"/>
                                     <Setter Property="Grid.Column" Value="{Binding Index}"/>
                                 </Style>
-                                
                             </ItemsControl.Styles>
                         </ItemsControl>
                         
@@ -257,5 +261,4 @@
         </StackPanel>
     </Border>
     
-
 </Window>
