@@ -36,8 +36,14 @@
             <Setter Property="FontSize" Value="18" />
             <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="BorderBrush" Value="Green"/>
-            
         </Style> 
+        
+        <Style Selector="Button.DozensButton">
+            <Setter Property="Height" Value="50" /> 
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
         
         <Style Selector="Button.Black">
             <Setter Property="Background" Value="Black" />
@@ -173,8 +179,39 @@
                     </Grid>
                 </StackPanel>
                 
-                <StackPanel Grid.Row="0" Grid.Column="2" Background="Aquamarine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="StackPanel 3"/>
+                <StackPanel Grid.Row="0" Grid.Column="2" Background="AntiqueWhite" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid RowDefinitions="Auto, Auto, Auto" ShowGridLines="True">
+                        <StackPanel Grid.Row="0">
+                            <Button Classes="DozensButton">
+                                <StackPanel>
+                                    <StackPanel.RenderTransform>
+                                        <RotateTransform Angle="-90" />
+                                    </StackPanel.RenderTransform>
+                                    <TextBlock Text="2 to 1" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1">
+                            <Button Classes="DozensButton">
+                                <StackPanel>
+                                    <StackPanel.RenderTransform>
+                                        <RotateTransform Angle="-90" />
+                                    </StackPanel.RenderTransform>
+                                    <TextBlock Text="2 to 1" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2">
+                            <Button Classes="DozensButton">
+                                <StackPanel>
+                                    <StackPanel.RenderTransform>
+                                        <RotateTransform Angle="-90" />
+                                    </StackPanel.RenderTransform>
+                                    <TextBlock Text="2 to 1" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
                 
                 <StackPanel x:Name="BetSelectionPanel" Grid.Row="1" Grid.Column="1">
