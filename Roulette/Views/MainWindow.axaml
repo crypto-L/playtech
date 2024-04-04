@@ -19,7 +19,7 @@
     
     <Window.Styles>
         <Style Selector="Button.BetSelectionButton">
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Height" Value="80"/>
             <Setter Property="Margin" Value="2" />
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -30,7 +30,7 @@
         </Style>
         
         <Style Selector="Button.BettingNumberButton">
-            <Setter Property="Height" Value="50" />
+            <Setter Property="Height" Value="80" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Margin" Value="2" />
             <Setter Property="FontSize" Value="18" />
@@ -62,9 +62,21 @@
     
     <Border BorderBrush="Black" BorderThickness="1">
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-            <Grid x:Name="MainContainer" ShowGridLines="True" RowDefinitions="Auto,Auto" ColumnDefinitions="*,5*,*">
-                <StackPanel Grid.Row="0" Grid.Column="0" Background="Aquamarine" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <TextBlock Text="StackPanel 1"/>
+            <Grid x:Name="MainContainer" RowDefinitions="Auto,Auto" ColumnDefinitions="*,5*,*">
+                
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Background="Aquamarine" >
+                    <Grid RowDefinitions="*" Background="Red" HorizontalAlignment="Right" >
+                        <Button Classes="DozensButton" Grid.Row="0" VerticalAlignment="Stretch">
+                            <Button.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel.RenderTransform>
+                                        <RotateTransform Angle="-90" />
+                                    </StackPanel.RenderTransform>
+                                    <TextBlock Text="00" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
                 </StackPanel>
                 
                 <StackPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -184,7 +196,7 @@
                 </StackPanel>
                 
                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" >
-                    <Grid RowDefinitions="*, *, *" ShowGridLines="True" >
+                    <Grid RowDefinitions="*, *, *">
                         
                         <Button Classes="DozensButton" Grid.Row="0" VerticalAlignment="Stretch">
                             <Button.Content>
