@@ -32,17 +32,12 @@ public class MainWindowViewModel : ViewModelBase
             ButtonsRow3.Add(CreateButton(1 + (i*3), i));
             
         }
-
-        foreach (var button in ButtonsRow1)
-        {
-            Console.WriteLine(button.Index);
-        }
+        
     }
 
     private ButtonInfo CreateButton(int buttonNumber, int index)
     {
         var isRed = RedButtonNumbers.Contains(buttonNumber);
-        var color = isRed ? "Red" : "Black";
         return new ButtonInfo(buttonNumber, isRed, index);
     }
     
